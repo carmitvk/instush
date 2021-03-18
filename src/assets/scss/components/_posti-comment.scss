@@ -1,0 +1,18 @@
+.posti-comment{
+    .user-name{
+        font-weight: bold; 
+        padding-right: 0.3rem;   
+    }
+    .comment{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+
+        .comment-like{
+            cursor: pointer;
+            padding-left: 5px;
+            width: 20px;
+        }
+    }
+
+}

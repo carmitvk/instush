@@ -1,0 +1,56 @@
+.header{
+    
+    display: flex;
+    height: 50px;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 18rem;
+
+    .header-logo{
+        font-family: Pacifico-Regular;
+        font-weight: bold;
+    }
+    .el-input__icon {
+        height: 100%; 
+        width: 10px;
+        line-height: 25px;
+        text-align: center;
+        transition: all .3s;
+    }
+    .input__icon {
+        display: inline-block;
+        height: 20px;
+    }
+    .header-search,.el-input__inner{
+        display: inline-block;
+        width: 200px;
+        height: 25px;
+        background-color: rgb(251, 248, 248);
+    }
+    .el-input{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 200px;
+    }
+
+    nav{
+        display: flex;
+        justify-content: space-between;
+        align-content: center;
+        align-items: center;
+        width:16%;
+
+        .home-icon{
+            width: 22px;
+        }
+        .user-profile-icon{
+            border-radius: 50%;
+            width: 23px;
+        }
+        .add-post-icon{
+            width: 22px;
+        }
+    }
+
+}
