@@ -8,6 +8,9 @@
 
 export default {
   name: 'postiEdit',
+  created(){
+    console.log('EDIT APP')
+  },
   components: {
   }
 }

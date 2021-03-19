@@ -1,2 +1,15 @@
-    
-    
+.posti-app{
+    display: flex;
+    flex-grow: 1;
+    .postisLoading {
+        display:flex;
+        flex-grow: 1;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+
+        .loading-gif {
+            width: 15%;
+        }
+    }
+}

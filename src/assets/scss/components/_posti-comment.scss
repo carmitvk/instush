@@ -7,12 +7,10 @@
         display: flex;
         justify-content: space-between;
         width: 100%;
-
-        .comment-like{
-            cursor: pointer;
-            padding-left: 5px;
-            width: 20px;
-        }
     }
-
+    .all-comments{
+        cursor: pointer;
+        color:rgb(167, 164, 164);
+        font-weight: lighter;
+    }
 }

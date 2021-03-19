@@ -1,26 +1,33 @@
 <template>
   <section class="posti-app">
-    <posti-list :postis="postis" />
+    <div v-if="isPostisLoading" class="postisLoading">
+      <img class="loading-gif" src="@/assets/img/reg-loading.gif">
+    </div>
+    <div v-else>
+      <posti-list :postis="postis" />
+     </div>
   </section>
   <!-- TODO: add paging by scroll-->
 </template>
 
 <script>
 import postiList from '../cmps/posti-list'
-var postis = require('../../populate-data/postis.json');
 
 export default {
   name: "postiApp",
   computed: {
-       postis(){
-            return postis  
-        },
+    postis(){
+      return this.$store.getters.postis  
+    },
+    isPostisLoading(){
+        return this.$store.getters.loading  
+    }
   },
   created() {
-    // console.log("postis", postis);
+      this.$store.dispatch({type:'loadPostis'});
   },
   components: {
-    postiList
+      postiList
   },
 };
 </script>

@@ -1,0 +1,16 @@
+
+.comment-preview{
+    display: flex;
+
+    .user-name{
+        display: inline-block;
+    }
+    .liked{
+        display: inline-block;
+        .comment-like{
+            cursor: pointer;
+            padding-left: 5px;
+            width: 20px;
+        }
+    }
+}

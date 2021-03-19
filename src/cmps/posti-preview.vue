@@ -118,21 +118,14 @@ export default {
     isSaved() {
         return true;
     },
+    // loggedInUser() { //if more than 1 user. for future use.
+    //   return this.$store.getters.loggedinUser;
+    // },
     isLikePosti() {
       var isIdFound = this.posti.likedBy.find((like) => {
-        like._id === this.loggedInUser._id;
+        return like._id === this.$store.getters.loggedinUser._id;
       });
-      return isIdFound ? true : false;
-    },
-    loggedInUser() {
-      return {
-        _id: "EEE22",
-        fullname: "Benny Orenshtein",
-        imgUrl:
-          "https://res.cloudinary.com/carmitvk/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1615984358/instagram/users-pic/user1_yqme7r.jpg",
-      };
-
-      //TODO::: this.$store.getters.loggedinUser
+      return !!isIdFound   // undefined will be false
     },
     isDisabled(){
         return this.txt.length === 0;
