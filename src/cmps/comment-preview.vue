@@ -5,8 +5,8 @@
             <span>{{ comment.txt }}</span>
         </div>
         <div class="liked">
-            <img v-if="isLikeComment" class="comment-like" src="../assets/img/red-hart.svg" alt="image" />
-            <img v-else class="comment-like" src="../assets/img/white-hart.svg" alt="image" />
+            <img v-if="isLikeComment" @click="changeCommentLike" class="comment-like" src="../assets/img/red-hart.svg" alt="image" />
+            <img v-else @click="changeCommentLike" class="comment-like" src="../assets/img/white-hart.svg" alt="image" />
         </div>
     </section>
 </template>
@@ -26,6 +26,9 @@ export default {
     openModalUser(user){ //TODO - or pass id
       console.log('openModalUser for userId=',user)
     },
+    changeCommentLike(){
+      this.$emit('changeCommentLike', this.comment);
+    }
   },
   computed: {
     loggedInUser() {

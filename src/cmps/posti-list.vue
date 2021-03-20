@@ -1,8 +1,7 @@
 <template>
   <div class="posti-list-container">
-    <hr class = "line"/>
     <div class="posti-list" v-for="posti in postis" :key="posti._id" >
-      <posti-preview @changeLike="changeLike(posti)" :posti="posti" />
+      <posti-preview @addComment="addComment" @changeCommentLike="changeCommentLike" @changeLike="changeLike(posti)" :posti="posti" />
     </div>
   </div>
 </template>
@@ -19,9 +18,14 @@ export default {
 
   methods:{
     changeLike(posti){
-      console.log('posti-list posti==',posti)
       this.$emit('changeLike', posti);
-    }
+    },
+    changeCommentLike(data){
+      this.$emit('changeCommentLike', data);
+    },
+    addComment(data){
+      this.$emit('addComment', data);
+    },
   },
   components: {
     postiPreview,

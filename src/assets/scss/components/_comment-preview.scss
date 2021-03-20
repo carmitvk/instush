@@ -1,6 +1,8 @@
 
 .comment-preview{
     display: flex;
+    width: 100%;
+    justify-content: space-between;
 
     full-user-name{
         display: inline-block;

@@ -24,7 +24,7 @@
         <div class="likes-num" @clicked="openLikesModal">
           <span>{{ postiLikesCount }}</span>
         </div>
-        <comment-list :posti="posti" />
+        <comment-list @changeCommentLike="changeCommentLike" :posti="posti" />
         <div class="duration">{{ createdAt }}</div>
         <div class="add-comment-container">
           <div class="wrapper">
@@ -75,6 +75,7 @@
 </template>
 
 <script>
+import {postiService} from "../services/posti.service.js";
 import moment from "moment";
 import commentList from './comment-list'
 import EmojiPicker from 'vue-emoji-picker'
@@ -102,7 +103,9 @@ export default {
 
     },
     postComment(){
+      const comment = postiService.getEmptyComment(this.txt);
       console.log('post a comment',this.txt);
+      this.$emit('addComment', {posti:this.posti,comment:comment});
       this.txt='';
     },
     selectEmoji(emoji) {
@@ -115,6 +118,9 @@ export default {
     changeLike(){
       this.$emit('changeLike', this.posti);
     },
+    changeCommentLike(comment){
+      this.$emit('changeCommentLike', {posti:this.posti,comment:comment});
+    }
   },
   computed: {
 

@@ -4,7 +4,7 @@
       <img class="loading-gif" src="@/assets/img/reg-loading.gif">
     </div>
     <div v-else>
-      <posti-list @changeLike="changeLike(posti)" :postis="postis" />
+      <posti-list @addComment="addComment" @changeCommentLike="changeCommentLike" @changeLike="changeLike" :postis="postis" />
      </div>
   </section>
   <!-- TODO: add paging by scroll-->
@@ -17,10 +17,15 @@ export default {
   name: "postiApp",
 
   methods:{
-    changeLike(posti){
-      console.log('posti-app posti==',posti)
-        this.$store.dispatch({type:'changeLike', posti:posti});
-    }
+    changeLike(currPosti){
+        this.$store.dispatch({type:'changeLike', data:{posti:currPosti, loggedinUser:this.$store.getters.loggedinUser}});
+    },
+    changeCommentLike(data){
+      this.$store.dispatch({type:'changeCommentLike', data:{posti:data.posti, comment:data.comment, loggedinUser:this.$store.getters.loggedinUser}});
+    },
+    addComment(data){
+      this.$store.dispatch({type:'addComment', data});
+    },
   },
   computed: {
     postis(){

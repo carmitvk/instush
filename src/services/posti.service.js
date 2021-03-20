@@ -12,6 +12,7 @@ export const postiService = {
     remove,
     save,
     getEmptyPosti,
+    getEmptyComment,
 }
 
 _createPostis()
@@ -53,6 +54,16 @@ function save(posti) {
     }
 }
 
+function getEmptyComment(txt) {
+    return {
+        "id": utilService.makeId(),
+        "txt": txt,
+        "by": userService.getLoggedinUser(),
+        "likedBy": []
+    }
+}
+
+
 function getEmptyPosti() {
     return {                
     "_id": utilService.makeId(),
@@ -64,7 +75,7 @@ function getEmptyPosti() {
         "lng": 0
     },
     "createdAt": Date.now(),
-    "creator": userService.getLoggedinUser()  ,
+    "creator": userService.getLoggedinUser(),
     "comments": [],
     "likedBy": [],
     "tags": [] }
