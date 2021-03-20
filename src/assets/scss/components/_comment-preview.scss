@@ -2,8 +2,13 @@
 .comment-preview{
     display: flex;
 
-    .user-name{
+    full-user-name{
         display: inline-block;
+    }
+    
+    .commented-user{
+        font-weight: bold; 
+        padding-right: 0.3rem;
     }
     .liked{
         display: inline-block;

@@ -10,8 +10,8 @@
 
         <div class="actions">
           <div class="like-and-comment">
-            <img class="like-posti" v-if="isLikePosti" src="../assets/img/red-hart.svg" alt="image" />
-            <img class="like-posti" v-else src="../assets/img/white-hart.svg" alt="image" />
+            <img class="like-posti" @click="changeLike" v-if="isLikePosti" src="../assets/img/red-hart.svg" alt="image" />
+            <img class="like-posti" @click="changeLike" v-else src="../assets/img/white-hart.svg" alt="image" />
             <img class="all-comments" src="../assets/img/speech-bubble.svg" alt="comment image" @click="openPostiDetails"/>
           </div>
 
@@ -24,7 +24,7 @@
         <div class="likes-num" @clicked="openLikesModal">
           <span>{{ postiLikesCount }}</span>
         </div>
-        <posti-comment :posti="posti" />
+        <comment-list :posti="posti" />
         <div class="duration">{{ createdAt }}</div>
         <div class="add-comment-container">
           <div class="wrapper">
@@ -76,7 +76,7 @@
 
 <script>
 import moment from "moment";
-import postiComment from './posti-comment'
+import commentList from './comment-list'
 import EmojiPicker from 'vue-emoji-picker'
 //npm i v-emoji-picker  //npm i vue-emoji-picker --save
 
@@ -112,21 +112,26 @@ export default {
     append(emoji) {
       this.txt += emoji
     },
+    changeLike(){
+      this.$emit('changeLike', this.posti);
+    },
   },
   computed: {
 
     isSaved() {
-        return true;
+      return this.posti.isSaved; 
     },
     // loggedInUser() { //if more than 1 user. for future use.
     //   return this.$store.getters.loggedinUser;
     // },
+
     isLikePosti() {
       var isIdFound = this.posti.likedBy.find((like) => {
         return like._id === this.$store.getters.loggedinUser._id;
       });
       return !!isIdFound   // undefined will be false
     },
+
     isDisabled(){
         return this.txt.length === 0;
     },
@@ -147,7 +152,7 @@ export default {
     },
   },
     components: {
-    postiComment,
+    commentList,
     EmojiPicker,
   },
 };

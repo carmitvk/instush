@@ -1,5 +1,5 @@
 <template>
-    <section class="posti-comment">
+    <section class="comment-list">
       <span class="user-name" @hover="openModalUser(posti.creator)">{{ posti.creator.fullname }}</span>
       <span>{{ posti.description }}</span>
       <div class="all-comments" @click="openPostiDetails(posti.creator)">{{ allComments }}</div>

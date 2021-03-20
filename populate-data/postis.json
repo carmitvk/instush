@@ -93,11 +93,21 @@
             },
             {
                 "id": "dis23232s3786er3",
-                "txt": "Im lovin it",
+                "txt": "really liked it",
                 "by": {
                     "_id": "OOO987",
                     "fullname": "Yoni Doy",
                     "imgUrl": "https://res.cloudinary.com/carmitvk/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1615984338/instagram/users-pic/user4_p6n68b.jpg"
+                },
+                "likedBy": []
+            },
+            {
+                "id": "tyrys3786er3",
+                "txt": "wow!!!! really nice one",
+                "by": {
+                    "_id": "aar4577",
+                    "fullname": "Gal Dvori",
+                    "imgUrl": "https://res.cloudinary.com/carmitvk/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1615984349/instagram/users-pic/user2.jpg_muesqu.jpg"
                 },
                 "likedBy": []
             }

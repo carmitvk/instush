@@ -26,7 +26,7 @@ function getById(id) {
 }
 
 // function savePostiComment(payload ){
-//     return storageService.put('posti-comment', userId)
+//     return storageService.put('comment-list', userId)
 // }
 
 // function savePostiLike(payload ){
@@ -133,7 +133,8 @@ function _createPostis() {
                 "tags": [
                     "animals",
                     "nature"
-                ]
+                ],
+                "isSaved" :true
             },
             {
                 "_id": "AAH234",
@@ -176,7 +177,23 @@ function _createPostis() {
                             "imgUrl": "https://res.cloudinary.com/carmitvk/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1615984338/instagram/users-pic/user4_p6n68b.jpg"
                         },
                         "likedBy": []
-                    }
+                    },
+                    {
+                        "id": "rrrr3786er3",
+                        "txt": "wow!!! really like this one!",
+                        "by": {
+                            "_id": "EEE22",
+                            "fullname": "Gal Dvori",
+                            "imgUrl": "https://res.cloudinary.com/carmitvk/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1615984349/instagram/users-pic/user2.jpg_muesqu.jpg"
+                        },
+                        "likedBy": [
+                            {
+                                "_id": "eeAA22",
+                                "fullname": "yossi tik",
+                                "imgUrl": "https://res.cloudinary.com/carmitvk/image/upload/v1615984344/instagram/users-pic/user3.jpg_clzrsm.jpg"
+                            }
+                        ]
+                    },
                 ],
                 "likedBy": [
                     {
@@ -188,7 +205,8 @@ function _createPostis() {
                 "tags": [
                     "animals",
                     "nature"
-                ]
+                ],
+                "isSaved" : false
             }
         ]
         localStorage.setItem(KEY, JSON.stringify(postis))

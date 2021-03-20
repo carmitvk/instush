@@ -1,7 +1,7 @@
 <template>
     <section class="comment-preview">
-        <div class="user-name">
-            <span class="user-name" @hover="openModalUser(comment.by)">{{ comment.by.fullname }}</span>
+        <div class="full-user-name">
+            <span class="commented-user" @hover="openModalUser(comment.by)">{{ comment.by.fullname }}</span>
             <span>{{ comment.txt }}</span>
         </div>
         <div class="liked">
