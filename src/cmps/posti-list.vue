@@ -8,6 +8,7 @@
 
 <script>
 import postiPreview from './posti-preview'
+
 export default {
   name: "postiList",
   props: {

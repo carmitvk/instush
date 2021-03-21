@@ -21,9 +21,14 @@
           </div>
         </div>
 
-        <div class="likes-num" @clicked="openLikesModal">
+        <div class="likes-num" @click="openLikesModal">
           <span>{{ postiLikesCount }}</span>
         </div>
+        <user-list @dialogClosed="dialogClosed" :dialogVisible="likesDialogVisible" :users="posti.likedBy" 
+                    dialogTitle="Likes">
+        </user-list>
+
+        
         <comment-list @changeCommentLike="changeCommentLike" :posti="posti" />
         <div class="duration">{{ createdAt }}</div>
         <div class="add-comment-container">
@@ -70,11 +75,11 @@
         
     </div>
 
-    <div v-if="isOpenLikesModal"></div>
   </section>
 </template>
 
 <script>
+import userList from './user-list'
 import {postiService} from "../services/posti.service.js";
 import moment from "moment";
 import commentList from './comment-list'
@@ -89,15 +94,22 @@ export default {
   },
   data() {
     return {
-      isOpenLikesModal: false,
       txt: '',
       search:'',
       timerId: null,
+      likesDialogVisible: false,
     };
   },
   methods: {
-    openLikesModal() {
-      this.isOpenLikesModal = true;
+    openLikesModal() { //carmit
+    console.log('this.likesDialogVisible', this.likesDialogVisible)
+      this.likesDialogVisible = true;
+    console.log('this.likesDialogVisible', this.likesDialogVisible)
+    },
+    dialogClosed(){
+
+      this.likesDialogVisible=false
+      
     },
     openPostiDetails(){
 
@@ -160,6 +172,7 @@ export default {
     components: {
     commentList,
     EmojiPicker,
+    userList,
   },
 };
 </script>

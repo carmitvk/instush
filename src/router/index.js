@@ -23,6 +23,7 @@ const routes = [
     path: '/posti/edit/:postiId?',
     component: postiEdit
   },
+
 ]
 
 const router = new VueRouter({
