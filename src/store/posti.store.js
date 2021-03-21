@@ -4,6 +4,7 @@ export const postiStore = {
     state: {
         postis : [],
         loading : false,
+        filter: '',
     },
     getters: {
         loading(state){
@@ -21,12 +22,15 @@ export const postiStore = {
         setLoadingState(state, {val}){
             state.loading = val;
         },
+        setFilter(state, {filter}) {
+            state.filter = filter;
+        }
     },
     actions: {
         async loadPostis(contex) {
             try{
                 contex.commit({ type: 'setLoadingState', val:true });
-                const postis = await postiService.query()
+                const postis = await postiService.query(contex.state.filter)
                 contex.commit({ type: 'setPostis', postis });
             }catch (err){
                 console.log('Store: Cannot load postis...', err);
@@ -80,9 +84,14 @@ export const postiStore = {
                 throw new Error('Cannot add comment to posti');
             }
         },
-
-
-
-
+        async setFilter(contex, {filter}) {
+            try{
+                contex.commit({ type: 'setFilter', filter });
+                this.dispatch({ type: 'loadPostis'}); //???
+            }catch(err){
+                console.log('setFilter: Cannot set filter', err);
+                throw new Error('Cannot set filte');
+            }
+        }
     },
 }

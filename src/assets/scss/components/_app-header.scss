@@ -4,17 +4,13 @@
     height: 50px;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20%;
+    padding: 0 25%;
     border-bottom:2px solid rgb(248, 242, 242);
 
 
     @include for-mobile-layout {
         margin: 0;
         padding:5px;
-
-        nav >*{
-            margin-right: 2px;
-        }
     }
 
     .header-logo{
@@ -44,6 +40,11 @@
     .routing-class{
         height: 100%;
     }
+
+    nav >*{
+        padding-left: 5px;
+    }
+
     nav{
         display: flex;
         justify-content: space-between;
