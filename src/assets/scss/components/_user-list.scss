@@ -1,21 +1,54 @@
 .user-list{
     .el-dialog__header{
-    border-bottom: 1px solid gray;
+        // border-bottom: 1px solid rgb(144, 147, 153);
+        border-bottom: 1px solid rgba(var(--b6a,219,219,219),1);
+        padding: 10px;
+
+    }
+    .el-dialog__title{
+        color:rgb(38, 38, 38);
+
+        height: 40px;
+        font-size:16px;
+        font-weight:600;
+        line-height:24px;
+
+    }
+
+    .el-dialog__headerbtn {
+        font-size: 30px;
+        top:8px;
+        
+        .el-dialog__close {
+            color: rgb(38, 38, 38)
+        }
+    }
+
+    .el-button {
+        padding: 7px 10px;
     }
     .el-dialog{
-        border-radius: 5px;
+        border-radius: 15px;
+    }
+    .el_dialog__close{
+        color:rgb(144, 147, 153);
+        font-size:16px;
+        font-weight:400;
+        width:80px;
+        height: 80px;
+        // line-height: 1;
     }
 
     .list-user{
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        margin-bottom: 10px;
+        margin-bottom: 15px;
 
         .creator-img{
             border-radius: 50%;
             width: 45px;
-            margin-right: 5px;
+            margin-right: 10px;
         }
 
         .user-name{
