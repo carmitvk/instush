@@ -7,12 +7,6 @@
     padding: 0 25%;
     border-bottom:2px solid rgb(248, 242, 242);
 
-
-    @include for-mobile-layout {
-        margin: 0;
-        padding:5px;
-    }
-
     .header-logo{
         font-family: Pacifico-Regular;
         // font-family: Cookie;
@@ -65,6 +59,26 @@
         .add-post-icon{
             width: 22px;
             height: 100%;
+        }
+    }
+    @include for-mobile-layout {
+
+        margin: 0;
+        padding:5px;
+
+        .header-search, .el-input__inner{
+            width: 150px;
+        }
+
+        nav >*{
+            padding-left: 10px;
+        }
+
+        .header-logo{
+            padding-right: 5px;;
+        }
+        nav .user-profile-icon{
+            margin: 25% 0;
         }
     }
 
