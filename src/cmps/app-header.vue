@@ -12,7 +12,7 @@
     </el-input>
 
     <nav>
-      <router-link class="routing-class" to="/">
+      <!-- <router-link class="routing-class" to="/">
         <img
           @click="isPressed = !isPressed"
           class="home-icon"
@@ -23,12 +23,19 @@
           "
           alt="image"
         />
+      </router-link> -->
+      <router-link class="routing-class" to="/">
+        <img
+          class="home-icon"
+          :src="require('../assets/img/home-white.svg')"
+          alt="image"
+        />
       </router-link>
       <!-- <router-link v-else to="/"><img class="home-icon" src="../assets/img/home-white.svg" alt="image"/></router-link>  -->
       <router-link class="routing-class" to="/posti/edit/:postiId?"
         ><img
           class="add-post-icon"
-          src="../assets/img/add-post.svg"
+          src="../assets/img/plus4.svg" 
           alt="image"
       /></router-link>
       <router-link class="routing-class" :to="'/user/'+loggedInUser._id"

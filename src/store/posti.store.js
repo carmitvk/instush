@@ -39,6 +39,7 @@ export const postiStore = {
                 contex.commit({ type: 'setLoadingState', val:false });
             }
         },
+        
         async changeLike(contex, {data}) {
             const {posti,loggedinUser} = data;
             try{

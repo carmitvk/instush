@@ -5,6 +5,18 @@
     align-items: center;
     flex-grow: 1;
 
+    .loading {
+        display:flex;
+        flex-grow: 1;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+
+        .loading-gif {
+            width: 15%;
+        }
+    }
+
     .creator{
         margin: 0.7rem;
         display: flex;
