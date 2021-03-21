@@ -3,7 +3,7 @@ import { userService } from './user.service.js';
 import { utilService } from './util.service.js'
 import { storageService } from './async-storage.service.js'
 
-const KEY = 'postisDB';
+const KEY = 'posti';
 
 
 export const postiService = {

@@ -1,7 +1,7 @@
 <template>
     <section class="comment-list">
       <span class="user-name" @hover="openModalUser(posti.creator)">{{ posti.creator.fullname }}</span>
-      <span>{{ posti.description }}</span>
+      <span class="description" >{{ posti.description }}</span>
       <div class="all-comments" @click="openPostiDetails(posti.creator)">{{ allComments }}</div>
       
       <div class="comment" v-for="comment in posti.comments" :key="comment.id" >
