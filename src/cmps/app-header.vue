@@ -1,6 +1,8 @@
 <template>
   <section class="header">
-    <span class="header-logo">Instush</span>
+    <router-link class="logo-routing-class" to="/">
+      <span class="header-logo">Instush</span>
+    </router-link>
     <el-input
       class="header-search"
       @input="debounce"

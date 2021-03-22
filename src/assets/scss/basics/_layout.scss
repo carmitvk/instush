@@ -38,21 +38,16 @@
 
 .card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(237px, 1fr));
-    grid-gap: 16px;
+    width: 100%;
+    grid-template-columns: repeat(auto-fill, minmax(125px, 1fr));
+    grid-gap: 1px;
     grid-auto-flow: dense;
 
-    grid-auto-rows: 300px;
+    grid-auto-rows: 125px;
+    // grid-auto-rows: 120px;
 
     > * {
-        @include aspect-ratio(1, 1);
-    }
-
-    > *:nth-child(3n) {
-        grid-row: span 2;
-    }
-
-    > *:nth-child(4n) {
-        grid-column: span 2;
+        @include aspect-ratio(1,1);
+        // @include aspect-ratio(9,16);
     }
 }

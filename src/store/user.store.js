@@ -4,6 +4,7 @@ export const userStore = {
     state: {
         loggedinUser: userService.getLoggedinUser(),
         fullUserData: null,
+        users:null,
     },
     
     getters: {
@@ -23,9 +24,24 @@ export const userStore = {
         setFullUserData(state, { fullUserData }){
             state.fullUserData = fullUserData;
         },
+        loadUsers(state, { users }){
+            state.users = users;
+        },
     },
 
-    actions: {
+    actions: { 
+        async loadUsers(contex){
+            try{
+                contex.commit({ type: 'setLoadingState', val:true });
+                var users = await userService.getUsers()
+                contex.commit({ type: 'loadUsers', users });
+            }catch(err){
+                console.log('loadUsers: cant load users', err);
+                throw new Error('UserStore: cant load users');
+            } finally{
+                contex.commit({ type: 'setLoadingState', val:false });
+            }
+        },
         async setFullUserData(contex, {userId}){
             try{
                 contex.commit({ type: 'setLoadingState', val:true });

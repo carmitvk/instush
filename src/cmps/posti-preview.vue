@@ -110,15 +110,11 @@ export default {
     };
   },
   methods: {
-    openLikesModal() { //carmit
-    console.log('this.likesDialogVisible', this.likesDialogVisible)
+    openLikesModal() { 
       this.likesDialogVisible = true;
-    console.log('this.likesDialogVisible', this.likesDialogVisible)
     },
     dialogClosed(){
-
       this.likesDialogVisible=false
-      
     },
     openPostiDetails(){
 

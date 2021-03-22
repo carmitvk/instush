@@ -46,22 +46,6 @@ function getById(id) {
     return storageService.get(KEY, id)
 }
 
-// function savePostiComment(payload ){
-//     return storageService.put('comment-list', userId)
-// }
-
-// function savePostiLike(payload ){
-//     return return storageService.put('posti-like', userId)
-// }
-
-// function saveCommentLike(payload ){
-//     return return storageService.put('posti-like', userId)
-// }
-
-// function tagPost(payload ){
-//     return return storageService.???
-// }
-
 function remove(id) {
     return storageService.delete(KEY, id)
 }
@@ -107,6 +91,45 @@ function _createPostis() {
     if (!postis || !postis.length) {
         postis =
             [
+                {
+                    "_id": "YUD234",
+                    "description": "nature in his best",
+                    "imgUrl": "https://res.cloudinary.com/carmitvk/image/upload/v1616094177/instagram/story-pic/pic5_nhi8gi.jpg",
+                    "loc": {
+                        "name": "Piliphins",
+                        "lat": 35.42,
+                        "lng": 34.22
+                    },
+                    "createdAt": 1616019494151,
+                    "creator": {
+                        "_id": "EEE22",
+                        "fullname": "Benny Orenshtein",
+                        "imgUrl": "https://res.cloudinary.com/carmitvk/image/upload/v1615984358/instagram/users-pic/user1_yqme7r.jpg"
+                    },
+                    "comments": [
+                        {
+                            "id": "dis34ws3786er3",
+                            "txt": "I like the sea",
+                            "by": {
+                                "_id": "OOO987",
+                                "fullname": "Yoni Doy",
+                                "imgUrl": "https://res.cloudinary.com/carmitvk/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1615984338/instagram/users-pic/user4_p6n68b.jpg"
+                            },
+                            "likedBy": []
+                        }
+                    ],
+                    "likedBy": [
+                        {
+                            "_id": "aar4577",
+                            "fullname": "Gal Dvori",
+                            "imgUrl": "https://res.cloudinary.com/carmitvk/image/upload/v1615984349/instagram/users-pic/user2.jpg_muesqu.jpg"
+                        }
+                    ],
+                    "tags": [
+                        "nature"
+                    ],
+                    "isSaved": true
+                },
                 {
                     "_id": "FFF234",
                     "description": "nice picture",

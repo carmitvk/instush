@@ -36,7 +36,7 @@ export default {
     }
   },
   created() {
-        this.$store.dispatch({type:'loadPostis'});
+        // this.$store.dispatch({type:'loadPostis'});
   },
   components: {
         postiList
