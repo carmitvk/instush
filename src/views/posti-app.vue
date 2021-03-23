@@ -4,7 +4,7 @@
       <img class="loading-gif" src="@/assets/img/reg-loading.gif">
     </div>
     <div v-else>
-      <posti-list @addComment="addComment" @changeCommentLike="changeCommentLike" @changeLike="changeLike" :postis="postis" />
+      <posti-list @removePosti="removePosti" @addComment="addComment" @changeCommentLike="changeCommentLike" @changeLike="changeLike" :postis="postis" />
      </div>
   </section>
   <!-- TODO: add paging by scroll-->
@@ -26,6 +26,9 @@ export default {
     addComment(data){
       this.$store.dispatch({type:'addComment', data});
     },
+    removePosti(postiId){
+      this.$store.dispatch({type:'removePosti', postiId});
+    },
   },
   computed: {
     postis(){
@@ -34,9 +37,6 @@ export default {
     isPostisLoading(){
         return this.$store.getters.loading  
     }
-  },
-  created() {
-        // this.$store.dispatch({type:'loadPostis'});
   },
   components: {
         postiList

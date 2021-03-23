@@ -47,13 +47,14 @@ function getById(id) {
 }
 
 function remove(id) {
-    return storageService.delete(KEY, id)
+    return storageService.remove(KEY, id)
 }
 
 function save(posti) {
     if (posti._id) {
         return storageService.put(KEY, posti) //edit
     } else {
+        posti._id = utilService.makeId(); //temp until mongo DB gives id //carmit
         return storageService.post(KEY, posti) //new
     }
 }
@@ -70,7 +71,7 @@ function getEmptyComment(txt) {
 
 function getEmptyPosti() {
     return {
-        "_id": utilService.makeId(),
+        // "_id": utilService.makeId(),
         "description": "",
         "imgUrl": "",
         "loc": {

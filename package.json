@@ -19,7 +19,9 @@
     "vue-el-element": "^1.12.8",
     "vue-moment": "^4.1.0",
     "vue-router": "^3.2.0",
-    "vuex": "^3.4.0"
+    "vuex": "^3.4.0",
+    "vue-axios": "^3.2.4",
+    "axios": "^0.21.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",

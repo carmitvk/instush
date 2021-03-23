@@ -1,7 +1,7 @@
 <template>
   <div class="posti-list-container">
     <div class="posti-list" v-for="posti in postis" :key="posti._id" >
-      <posti-preview @addComment="addComment" @changeCommentLike="changeCommentLike" @changeLike="changeLike(posti)" :posti="posti" />
+      <posti-preview @removePosti="removePosti" @addComment="addComment" @changeCommentLike="changeCommentLike" @changeLike="changeLike(posti)" :posti="posti" />
     </div>
   </div>
 </template>
@@ -26,6 +26,9 @@ export default {
     },
     addComment(data){
       this.$emit('addComment', data);
+    },
+    removePosti(postiId){
+      this.$emit('removePosti', postiId);
     },
   },
   components: {

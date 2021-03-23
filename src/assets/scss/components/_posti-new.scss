@@ -1,0 +1,78 @@
+.posti-new{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    max-width: 80%;
+
+    form > * {
+        margin-bottom: 20px;
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+
+        .description{
+            display: block;
+            width: 100%;
+            resize: none;
+            border-radius: 17px;
+            flex-grow: 1;
+        }
+
+        .tags-picker{
+            display: block;
+            height: 30px;
+        }
+
+        .upload{
+            height: 30px;
+            width: 30px;
+            margin-right: 5px;
+        }
+
+        .el-button {
+            display: block;
+            padding: 7px 10px;
+            align-self: center;
+        }
+
+    }
+
+    .el-dialog__header{
+        border-bottom: 1px solid rgba(var(--b6a,219,219,219),1);
+        padding: 10px;
+
+    }
+    .el-dialog__title{
+        color:rgb(38, 38, 38);
+        height: 40px;
+        font-size:16px;
+        font-weight:600;
+        line-height:24px;
+    }
+
+    .el-dialog__headerbtn {
+        font-size: 30px;
+        top:8px;
+        
+        .el-dialog__close {
+            color: rgb(38, 38, 38)
+        }
+    }
+
+    .el-dialog{
+        border-radius: 15px;
+    }
+    .el_dialog__close{
+        color:rgb(144, 147, 153);
+        font-size:16px;
+        font-weight:400;
+        width:80px;
+        height: 80px;
+    }
+
+}

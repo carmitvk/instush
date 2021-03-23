@@ -24,7 +24,14 @@ export const postiStore = {
         },
         setFilter(state, {filter}) {
             state.filter = filter;
-        }
+        },
+        savePosti(state, {savedPosti}) {
+            state.postis.unshift(savedPosti);
+        },
+        removePosti(state, {postiId}) {
+            const idx = state.postis.findIndex((posti) => posti._id === postiId)
+            state.postis.splice(idx, 1)
+        },
     },
     actions: {
         async loadPostis(contex) {
@@ -88,11 +95,39 @@ export const postiStore = {
         async setFilter(contex, {filter}) {
             try{
                 contex.commit({ type: 'setFilter', filter });
-                this.dispatch({ type: 'loadPostis'}); //???
+                await this.dispatch({ type: 'loadPostis'}); //???
             }catch(err){
                 console.log('setFilter: Cannot set filter', err);
                 throw new Error('Cannot set filte');
             }
-        }
+        },
+
+        async savePosti(contex, {posti}) {
+            try{
+                contex.commit({ type: 'setLoadingState', val:true });
+                const savedPosti = await postiService.save(posti);
+                // await this.dispatch({ type: 'loadPostis'});
+                contex.commit({ type: 'savePosti', savedPosti });
+            }catch (err){
+                console.log('Store: Cannot save posti...', err);
+                throw new Error('Cannot save posti...');
+            }finally{
+                contex.commit({ type: 'setLoadingState', val:false });
+            }
+        },
+        async removePosti(contex, {postiId}) {
+            try{
+                contex.commit({ type: 'setLoadingState', val:true });
+                const res = await postiService.remove(postiId);
+                console.log('res',res)
+                // await this.dispatch({ type: 'loadPostis'});
+                contex.commit({ type: 'removePosti', postiId });
+            }catch (err){
+                console.log('Store: Cannot remove posti...', err);
+                throw new Error('Cannot remove posti...');
+            }finally{
+                contex.commit({ type: 'setLoadingState', val:false });
+            }
+        },
     },
 }

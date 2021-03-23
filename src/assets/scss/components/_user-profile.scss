@@ -1,6 +1,7 @@
 .user-profile {
     display: flex;
     flex-grow: 1;
+    background-color: rgb(251, 248, 248);
 
     .loading {
         display: flex;
@@ -79,8 +80,12 @@
                 }
             }
         }
+        .el-menu-demo{
+
+        }
 
         .el-menu.el-menu--horizontal {
+            background-color: rgb(251, 248, 248);
             border-top: 1px solid #dbdbdb;
             border-bottom: none;
             display: flex;

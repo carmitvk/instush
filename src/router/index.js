@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import postiApp from '../views/posti-app.vue'
 import userProfile from '../views/user-profile.vue'
-import postiEdit from '../cmps/posti-edit.vue'
+// import postiNew from '../views/posti-new.vue'
 
 Vue.use(VueRouter)
 
@@ -19,10 +19,10 @@ const routes = [
     component: userProfile
   },
 
-  {
-    path: '/posti/edit/:postiId?',
-    component: postiEdit
-  },
+  // {
+  //   path: '/posti/new',
+  //   component: postiNew
+  // },
 
 ]
 

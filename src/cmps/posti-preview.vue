@@ -2,8 +2,13 @@
   <section class="posti-preview">
     <div>
       <div class="creator-container">
+        <div class="user-details">
           <img class="creator-img" :src="posti.creator.imgUrl" alt="image" />
           <span class="name">{{ posti.creator.fullname }}</span>
+        </div>
+        <span class="actions" @click="openPostActions">
+          <svg aria-label="More options" class="_8-yf5 " fill="#262626" height="16" viewBox="0 0 48 48" width="16"><circle clip-rule="evenodd" cx="8" cy="24" fill-rule="evenodd" r="4.5"></circle><circle clip-rule="evenodd" cx="24" cy="24" fill-rule="evenodd" r="4.5"></circle><circle clip-rule="evenodd" cx="40" cy="24" fill-rule="evenodd" r="4.5"></circle></svg>  
+        </span>
       </div>
       <div class="post-img">
         <img :src="posti.imgUrl" alt="image" />
@@ -18,8 +23,8 @@
             </div>
 
             <div class="save-posti-container"> 
-              <img class="save-posti" v-if="isSaved" src="../assets/img/tagged.svg" alt="image" />
-              <img class="save-posti" v-else src="../assets/img/untagged.svg" alt="image" />
+              <img class="save-posti" v-if="isSaved" src="../assets/img/bookmark-black.svg" alt="image" />
+              <img class="save-posti" v-else src="../assets/img/bookmark-white.svg" alt="image" />
             </div>
           </div>
 
@@ -83,6 +88,8 @@
       </div>
     </div>
 
+    <posti-actions @removePosti="removePosti" @dialogClosed="actionsDialogClosed" :dialogVisible="postiActionsVisible" :posti="posti">
+    </posti-actions>
 
   </section>
 </template>
@@ -92,6 +99,7 @@ import userList from './user-list'
 import {postiService} from "../services/posti.service.js";
 import moment from "moment";
 import commentList from './comment-list'
+import postiActions from './posti-actions'
 import EmojiPicker from 'vue-emoji-picker'
 //npm i v-emoji-picker  //npm i vue-emoji-picker --save
 
@@ -107,6 +115,7 @@ export default {
       search:'',
       timerId: null,
       likesDialogVisible: false,
+      postiActionsVisible: false,
     };
   },
   methods: {
@@ -115,6 +124,15 @@ export default {
     },
     dialogClosed(){
       this.likesDialogVisible=false
+    },
+    openPostActions(){
+      this.postiActionsVisible = true;
+    },
+    removePosti(postiId){
+      this.$emit('removePosti', postiId);
+    },
+    actionsDialogClosed(){
+      this.postiActionsVisible=false
     },
     openPostiDetails(){
 
@@ -178,6 +196,7 @@ export default {
     commentList,
     EmojiPicker,
     userList,
+    postiActions,
   },
 };
 </script>
