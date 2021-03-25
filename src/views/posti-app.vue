@@ -4,7 +4,7 @@
       <img class="loading-gif" src="@/assets/img/reg-loading.gif">
     </div>
     <div v-else>
-      <posti-list @removePosti="removePosti" @addComment="addComment" @changeCommentLike="changeCommentLike" @changeLike="changeLike" :postis="postis" />
+      <posti-list :postis="postis" @removePosti="removePosti" @addComment="addComment" @changeCommentLike="changeCommentLike" @changeLike="changeLike"  />
      </div>
   </section>
   <!-- TODO: add paging by scroll-->

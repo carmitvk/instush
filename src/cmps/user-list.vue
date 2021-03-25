@@ -1,14 +1,14 @@
 <template>
   <div class="user-list">
     <el-dialog
-      width="30%"
+      width="25%"
       center
       :title="dialogTitle"
       :visible.sync="dialogVisible"
       :before-close="dialogClosed"
     >
       <div class="list-user" v-for="user in users" :key="user._id">
-        <img class="creator-img" :src="user.imgUrl" alt="image" />
+        <img class="user-img" :src="user.imgUrl" alt="image" />
         <span class="user-name">{{ user.fullname }}</span>
         <!-- <button class="follow-btn">Follow</button> -->
         <el-button type="primary" :loading="false">Follow</el-button>

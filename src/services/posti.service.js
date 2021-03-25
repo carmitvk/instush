@@ -79,7 +79,7 @@ function getEmptyPosti() {
             "lat": 0,
             "lng": 0
         },
-        "createdAt": Date.now(),
+        "createdAt": Date.now(), //temp. will be done by server side
         "creator": userService.getLoggedinUser(),
         "comments": [],
         "likedBy": [],
