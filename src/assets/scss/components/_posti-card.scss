@@ -8,10 +8,19 @@
     // }
     .card-image:hover{
         background-color: #fff;
-        opacity: 0.4;
     }
     .card-data{
         padding:10px;
+        opacity: 0;
+        transition: 0.3s;
+
+        &:hover{
+            display: inline-block;
+            background-color: rgba(0,0,0,0.5);
+            color: rgb(230, 236, 236);
+            opacity: 1;
+        }
+
         .tags-list{
             .tag {
                 display: flex;
@@ -26,7 +35,9 @@
             font-size:16px;
             color:white;
         }
+        
         .like-count{
-            color: rgb(69, 97, 110);        }
+            color:white; 
+        }
     }
 }
