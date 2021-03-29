@@ -10,14 +10,6 @@
        <section v-if="postiToEdit" >
         <form>
             <textarea class="description" placeholder=" Write your desceiption here..." name="description" rows="3" cols="100" v-model="postiToEdit.description"></textarea>
-            <!-- <el-select v-model="postiToEdit.tags" placeholder="Select">
-                    <el-option label="Nature" value="nature" ></el-option>
-                    <el-option label="Animals" value="animals"></el-option>
-                    <el-option label="Funny" value="funny"></el-option>
-                    <el-option label="Friends" value="friends"></el-option>
-                    <el-option label="Me" value="Me"></el-option>
-            </el-select> -->
-
 
             <el-select
                 class="tags-picker"
@@ -37,12 +29,36 @@
 
             <img class="picture" v-if="postiToEdit.imgUrl" :src="postiToEdit.imgUrl" alt="image"/>
             <!-- <img v-if="require(postiToEdit.imgUrl)" :src="require(postiToEdit.imgUrl)" class="picture"> -->
-            <label v-if="!isLoading" for="imgUploader" >
-                <!-- <img class="upload" src="@/assets/img/download-file.svg" alt=""> -->
-                <img class="upload" src="@/assets/img/drag-icon.png" alt="">
-            </label>
-            <img class="loading" v-else src="@/assets/img/reg-loading.gif" alt="">
+            <!-- <label v-if="!isLoading" for="imgUploader" was>  -->
+                <!-- <img class="upload" src="@/assets/img/drag-icon.png" alt=""> -->
+
+<!-- <el-upload
+  class="input-file"
+  id="imgUploader"
+  :on-change="onUploadImg"
+  drag
+  action="https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload/instush/post-imgs"
+  :on-preview="handlePreview"
+  :on-remove="handleRemove"
+  >
+  <i class="el-icon-upload"></i>
+  <div class="el-upload__text">Drop file here or <em>click to upload</em></div>
+</el-upload> -->
+
+            <!-- </label>  -->
+
+<!-- <img-upload/> -->
+<!-- <img-upload v-if="!isLoading"/> -->
+
+            <!-- <img class="loading" v-else src="@/assets/img/reg-loading.gif" alt=""> -->
+
+
+
             <input btn class="input-file"  placeholder="Upload file" type="file" id="imgUploader" @change="onUploadImg" />
+
+
+
+
 
             
 
@@ -62,7 +78,8 @@
 <script>
 
 import {postiService} from '../services/posti.service.js'
-// import { uploadImg } from "../services/img-upload.service.js";
+import { uploadImg } from "../services/img-upload.service.js";
+// import imgUpload from "@/cmps/img-upload";
 
 export default {
     name: "postiNew",
@@ -99,7 +116,8 @@ export default {
         save() {
             if (this.postiToEdit.imgUrl){
                 this.$store.dispatch({ type: 'savePosti', posti:this.postiToEdit })
-                this.$router.push('/')                 
+                // CLOSE MODAL
+                this.dialogClosed();
             }else{
                 console.log('NewPosti: Cannot add post. pick a picture first');
             }
@@ -114,12 +132,12 @@ export default {
         async onUploadImg(ev) {
             try{
                 this.btnPressed = true;
-                this.postiToEdit.imgUrl = '@/assets/img/forest.jpg';
+                // this.postiToEdit.imgUrl = '@/assets/img/forest.jpg';
                 console.log('UPLOAD',ev)
 
-                // this.isLoading = true
-                // const res = await uploadImg(ev)
-                // this.postiToEdit.imgUrl = res.url
+                this.isLoading = true
+                const res = await uploadImg(ev)
+                this.postiToEdit.imgUrl = res.url
 
 
                 console.log('this.postiToEdit.imgUrl' ,this.postiToEdit.imgUrl)
@@ -157,6 +175,7 @@ export default {
         this.postiToEdit = postiService.getEmptyPosti();
     },
    components: {
+    //    imgUpload,
   }, 
 }
 </script>

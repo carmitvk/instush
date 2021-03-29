@@ -1,11 +1,15 @@
 .header{
     
-    display: flex;
-    height: 50px;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 25%;
     border-bottom:2px solid rgb(248, 242, 242);
+
+    .routing-container{
+        display: flex;
+        height: 50px;
+        justify-content: space-between;
+        align-items: center;
+        width:640px;
+        margin:0 auto;
+    }
 
     .header-logo{
         font-family: Pacifico-Regular;

@@ -263,6 +263,67 @@ function _createPostis() {
                         "nature"
                     ],
                     "isSaved": false
+                },
+                {
+                    "_id": "IUE567",
+                    "description": "best picture i took ever",
+                    "imgUrl": "https://res.cloudinary.com/carmitvk/image/upload/v1616094177/instagram/story-pic/pic4_jr0wfn.jpg",
+                    "loc": {
+                        "name": "Tel Aviv",
+                        "lat": 35.42,
+                        "lng": 34.22
+                    },
+                    "createdAt": 1616019195151,
+                    "creator": {
+                        "_id": "EEE22",
+                        "fullname": "Benny Orenshtein",
+                        "imgUrl": "https://res.cloudinary.com/carmitvk/image/upload/v1615984358/instagram/users-pic/user1_yqme7r.jpg"
+                    },
+                    "comments": [
+                        {
+                            "id": "disud3786er3",
+                            "txt": "awesome picture",
+                            "by": {
+                                "_id": "ccr4577",
+                                "fullname": "Roni Mizrahi",
+                                "imgUrl": "https://res.cloudinary.com/carmitvk/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1615985058/instagram/users-pic/user5_vtz4w4.jpg"
+                            },
+                            "likedBy": [
+                                {
+                                "_id": "ccr4577",
+                                "fullname": "Roni Mizrahi",
+                                "imgUrl": "https://res.cloudinary.com/carmitvk/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1615985058/instagram/users-pic/user5_vtz4w4.jpg"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "dis23232s3786er3",
+                            "txt": "good one!!!",
+                            "by": {
+                                "_id": "OOO987",
+                                "fullname": "Yoni Doy",
+                                "imgUrl": "https://res.cloudinary.com/carmitvk/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1615984338/instagram/users-pic/user4_p6n68b.jpg"
+                            },
+                            "likedBy": []
+                        }
+                    ],
+                    "likedBy": [
+                        {
+                            "_id": "EEE22",
+                            "fullname": "Benny Orenshtein",
+                            "imgUrl": "https://res.cloudinary.com/carmitvk/image/upload/v1615984358/instagram/users-pic/user1_yqme7r.jpg"
+                        },
+                        {
+                            "_id": "aar4577",
+                            "fullname": "Gal Dvori",
+                            "imgUrl": "https://res.cloudinary.com/carmitvk/image/upload/v1615984349/instagram/users-pic/user2.jpg_muesqu.jpg"
+                        }
+                    ],
+                    "tags": [
+                        "animals",
+                        "nature"
+                    ],
+                    "isSaved": false
                 }
             ]
         localStorage.setItem(KEY, JSON.stringify(postis))

@@ -1,6 +1,6 @@
 <template>
-  <div class="posti-list-container">
-    <div class="posti-list" v-for="posti in postis" :key="posti._id" >
+  <div class="posti-list">
+    <div class="posti-list-container" v-for="posti in postis" :key="posti._id" >
       <posti-preview @removePosti="removePosti" @addComment="addComment" @changeCommentLike="changeCommentLike" @changeLike="changeLike(posti)" :posti="posti" />
     </div>
   </div>

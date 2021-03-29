@@ -3,12 +3,14 @@ import axios from 'axios';
 export const uploadImg = async (ev) => {
     // axios.defaults.headers.common['Access-Control-Allow-Origin'] = true // for all requests
     // axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*' // for all requests
+    
     // Defining our variables
     const UPLOAD_PRESET = 'carmit_presets' // Insert yours
     const CLOUD_NAME = 'carmitvk' // Insert yours
-    const UPLOAD_URL = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload/instush/post-imgs`
+    const UPLOAD_URL = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`
     const FORM_DATA = new FormData();
     // Building the request body
+    // FORM_DATA.append('file', file)
     FORM_DATA.append('file', ev.target.files[0])
     FORM_DATA.append('upload_preset', UPLOAD_PRESET)
     // Sending a post method request to Cloudniarys' API

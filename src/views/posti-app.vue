@@ -1,10 +1,12 @@
 <template>
   <section class="posti-app">
+    <div class= "posti-app-container">
     <div v-if="isPostisLoading" class="postisLoading">
       <img class="loading-gif" src="@/assets/img/reg-loading.gif">
     </div>
     <div v-else>
       <posti-list :postis="postis" @removePosti="removePosti" @addComment="addComment" @changeCommentLike="changeCommentLike" @changeLike="changeLike"  />
+     </div>
      </div>
   </section>
   <!-- TODO: add paging by scroll-->
