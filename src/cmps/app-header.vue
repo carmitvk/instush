@@ -43,11 +43,11 @@
       /></router-link>
     </nav>
 
-    <posti-new @dialogClosed="dialogClosed" :dialogVisible="newPostiDialogVisible">
-    </posti-new>
-
    </div>
+   <posti-new v-if="newPostiDialogVisible" @dialogClosed="dialogClosed" :dialogVisible="newPostiDialogVisible">
+    </posti-new>
   </section>
+  
 </template>
 
 <script>

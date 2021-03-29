@@ -1,6 +1,6 @@
 <template>
+<div class="posti-new" >
     <el-dialog
-      class="posti-new"
       width="60%"
       center
       :title="title"
@@ -54,7 +54,7 @@
 
 
 
-            <input btn class="input-file"  placeholder="Upload file" type="file" id="imgUploader" @change="onUploadImg" />
+            <input btn class="input-file" placeholder="Upload file" type="file" id="imgUploader" @change="onUploadImg" />
 
 
 
@@ -73,6 +73,7 @@
 
 
     </el-dialog>
+    </div>
 </template>
 
 <script>
@@ -114,12 +115,13 @@ export default {
     },
     methods: {
         save() {
-            if (this.postiToEdit.imgUrl){
+            if (this.postiToEdit.imgUrl && !this.btnPressed){
                 this.$store.dispatch({ type: 'savePosti', posti:this.postiToEdit })
                 // CLOSE MODAL
                 this.dialogClosed();
+                this.postiToEdit = postiService.getEmptyPosti();
             }else{
-                console.log('NewPosti: Cannot add post. pick a picture first');
+                console.log('NewPosti: Cannot add post. pick a picture first and wait for loading.');
             }
         },
 
